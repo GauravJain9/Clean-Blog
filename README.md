@@ -1,0 +1,2 @@
+# Blog-Website
+Users can create and write and read the blogs from / on our website. Dynamically create routes and display the data based upon the GET method or else take the data based upon the POST method. As soon as user wants to read any particular blog which they find interesting a new route then and there will be created and a GET request will be made by the browser to our server and then based upon the request body that which blog they want to see, that blog will be displayed on that route.
