@@ -15,8 +15,8 @@ module.exports = async (req,res) => {
         await user.save();
         res.cookie("jwt", result.token, {
           expires : new Date(Date.now() + 8309481349),
-          httpOnly : true,
-          // secure : true
+          // httpOnly : true,
+          secure : true
         });
         loggedinhai = true;
         res.redirect("/");

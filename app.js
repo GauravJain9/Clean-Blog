@@ -13,7 +13,7 @@ const jwt = require("jsonwebtoken");
 mongoose.set('strictQuery', true);
 
 
-const conn = mongoose.connect("mongodb://localhost:27017/cleanblog");
+const conn = mongoose.connect(process.env.DATABASE);
 conn.then(() => console.log("Database connection successfull"))
 .catch((err) => console.log("Something went wrong " + err));
 
