@@ -1,0 +1,49 @@
+<%- include("partials/headerforreadblog.ejs") %>
+<style>
+  .content{
+    text-align: center;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    word-wrap: break-word;
+  }
+  .blogtitle{
+    word-wrap: break-word;
+  }
+  /* @media only screen and (max-width: 600px) {
+    .content {
+    background-color: lightblue;
+  } */
+  </style>
+ <!-- Page Header -->
+ <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <div class="blogtitle">
+              <h1>
+                <%=Blog.title%>
+            </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class = "content">
+            <%=Blog.content%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <hr>
+<%- include("partials/footer.ejs") %>

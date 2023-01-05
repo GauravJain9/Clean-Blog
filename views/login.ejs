@@ -1,0 +1,65 @@
+<%- include("partials/header.ejs") %>
+<style>
+  .Invalidlogin {
+    background-color: lightgrey;
+    border: 1px solid green;
+    padding: 5px;
+    height: auto;
+    text-align: center;
+    color: red;
+  }
+  </style>
+<header class="masthead">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>Login</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class = "Invalidlogin" id = "invalidlogin">
+        <h4>Invalid Login Credentials</h4>
+      </div>
+      <form action="/login" method="POST">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Email" class="form-control" required>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" class="form-control" required>
+          </div>
+        </div>
+      
+        <div class="form-group my-4 text-center">
+          <button class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+const status = "<%=loginstatus.status%>";
+if(status == "true")
+{
+document.getElementById("invalidlogin").style.display = "none";
+}
+else {
+    document.getElementById("invalidlogin").style.display = "block";
+    setTimeout(function () {
+      document.getElementById("invalidlogin").style.display = "none";
+    },1000);
+}
+</script>
+<%- include("partials/footer.ejs") %>

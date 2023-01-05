@@ -1,0 +1,80 @@
+<%- include("partials/header.ejs") %>
+<style>
+  .Invalidlogin {
+    background-color: lightgrey;
+    border: 1px solid green;
+    padding: 5px;
+    height: auto;
+    text-align: center;
+    color: red;
+  }
+  </style>
+<!-- Page Header -->
+<header class="masthead">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>Create A New Account</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class = "Invalidlogin" id = "invalidlogin">
+        <h4>Invalid Registration</h4>
+      </div>
+      <form action="/register" method="POST">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Username" class="form-control" required>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Email" class="form-control" required>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" class="form-control" required>
+          </div>
+        </div>
+      
+        <div class="form-group my-4 text-center">
+          <button class="btn btn-success">Register now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  const usernamestatus = "<%=userNameAlredyExists.status%>";
+  const emailstatus = "<%=emailAlredyExists.status%>";
+  if(usernamestatus == "false" && emailstatus == "false")
+  {
+  document.getElementById("invalidlogin").style.display = "none";
+  }
+  else {
+    // if(usernamestatus == "true" && email == "true") {
+    // document.getElementById("invalidlogin").innerText = "☹️ Sorry to inform that both username and email already exists"
+    // }
+    // else if(usernamestatus == "true")
+    // document.getElementById("invalidlogin").innerText = "☹️ Sorry to inform that this username already exists"
+    // else
+    document.getElementById("invalidlogin").innerText = "☹️ Sorry to inform that this email already exists"
+      document.getElementById("invalidlogin").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("invalidlogin").style.display = "none";
+      },1500);
+  }
+  </script>
+<%- include("partials/footer.ejs") %>
